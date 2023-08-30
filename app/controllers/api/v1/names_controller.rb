@@ -6,11 +6,11 @@ module Api::V1
       #   possibility: 0.1
       # }
 
-      country, possibility = FetchNameInformationService.new.(name: params[:name])
+      result = FetchNameInformationService.new.(name: params[:name])
 
       render json: {
-        country:     country,
-        possibility: possibility
+        country:     result[:country],
+        possibility: result[:possibility]
       }
     end
   end
